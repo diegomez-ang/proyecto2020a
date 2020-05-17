@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <link rel="shorcut icon" type="image/x-icon" href="imagenes/brain.ico">
+    <title>Proyecto integrador</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/875b875fe8.js" crossorigin="anonymous"></script>
+   
+</head>
+<body style="font-family: arial, sans-serif;margin: 0;">
+    <h1>Control de inversor de voltaje mediante ESP32 y FPGA </h1>
+    <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
+    <p> Este proyecto busca ser un control que permita manipular el encendido y apagado de
+        un inversor de voltaje mediante el uso de una <b>ESP32</b> conectada a internet y gracias a la <b>FPGA</b>
+        poder tener un contador que permita saber la cantidad de flancos que ha tenido el inversor.
+    </p>
+    <p>
+        Por otro lado se pretende tener un control de la temperatura del inversor, el sensor estara conectado a la <b>ESP32</b>
+        y mediante el uso de protocolos <b>MQTT</b> tener un control remoto de la temperatura en todo momento.
+    </p>
+
+    <table>
+
+        <caption><h2> REGISTRO DE LA TEMPERATURA EN TIEMPO REAL</h2></caption>
+       
+        <tr>
+            <td>
+                <iframe width="450" height="260" style="border: 2px solid #cccccc;" src="https://thingspeak.com/channels/1037327/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
+            </td>
+            <td>
+                <iframe width="250" height="260" style="border: 2px solid #cccccc;" src="https://thingspeak.com/channels/1037327/widgets/170727"></iframe>
+            </td>      
+            
+        </tr>
+
+    </table>
+    <a target="_blank" href="https://thingspeak.com/channels/1037327">Thingspeak</a>
+
+
+    
+</body>
+</html>
+

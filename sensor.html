@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="shorcut icon" type="image/x-icon" href="imagenes/brain.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto integrador</title>
+</head>
+<body>
+    <header>
+        <div class="encabezado">
+        <h1>CORPORACIÓN UNIFICADA NACIONAL DE EDUCACION SUPERIOR CUN</h1>
+        <h2 class= "proyecto">Sustentación final proyecto integrador 2020-A</h2>
+        <p class="integrantes">
+            Diego A. Gómez Angarita - Horacio Castro Forero - Edwin Orlando Castro Pinto
+        <p>
+        </div>
+    </header>
+
+
+    <h2 class="titulo">Monitoreo de un inversor de voltaje mediante ESP32</h2>
+<section class="contenedor">   
+    <div class="materias">
+        <p class="materias-integradoras">Materias integradoras:</p>
+        <ol class="lista-materias">
+            <li>Telematica.</li>
+            <li>Electronica de potencia.</li>
+            <li>Dispositivos de interconexión.</li>        
+        </ol>
+    </div>
+
+
+   
+        <h2 class= "descripcion">Descripcion del proyecto:</h2>
+        <p class="parrafo-descripcion">El proyecto a presentar es un inversor de voltaje el cual tendra en la entrada una señal de 12Vdc y a la salida se espera tener una salida de 120 Vac; adicionalmente contara con un pequeño circuito que permite realizar un control remoto de la temperatura, el cual se implemento mediante el uso de una ESP32 conectada a internet y mediante protocolos MQTT se obtendran los valores de temperatura en esta pagina web.</p>
+        <p class="parrafo-descripcion">Se utilizaran servicios MQTT del servidor Thingspeak para traer las lecturas del sensor de temperatura.</p>
+   
+
+    <h2 class="inversor">Inversor:</h2>
+    <p> El inversor utilizado fue diseñado en clase de Electronica de Potencia y simulado inicalmente en proteus.</p>
+    <img class="proteus" src="inversor.png" width="600">
+    <p>El inversor se armo basicamente utilizando los siguientes elementos:</p>
+    <ul class="elementos">
+        <li><b>CD4047</b> es un multi vibrador con muy bajo consumo de energía, puede operar en multivibrador monoestable y también en multivibrador estable. en el modo multivibrador astable puede operar en modo de funcionamiento libre o en modo gatable y también proporciona una buena estabilidad de frecuencia estable. Puede generar un ciclo de trabajo del 50% que creará un pulso, que se puede aplicar al circuito del inversor. </li>
+        <li><b>IRFZ244</b>  es una puerta de silicio de modo mejorado N-channel Transistor de efecto de campo (MOSFET). Se utilizan principalmente en reguladores de conmutación, convertidores de conmutación, controladores de relé, etc. La razón para usarlos en el circuito INVERSOR es porque es un transistor de conmutación alta, puede funcionar con muy poca potencia de accionamiento de puerta y tener alta impedancia de entrada.</li>
+        <li>Transformador conectado a la salida de los IRFZ244 y recibira los pulsos generados por estos para lograr generar elevar el voltaje de 12v a 120v.</li>
+        <li>Cuenta ademas con condensadores, resistencias y potenciometros que en conjunto hacen que el sistema funcione de manera correcta.</li>
+    </ul>
+
+    <h3 class="monitoreo">Monitoreo de la temperatura:</h3>
+    <p>Para tener seguimiento de la temperatura se realizo un montaje mediante el uso de una ESP32 y un sensor de temperatura DHT11; la ESP32 se programa en el IDE de Arduino y se conecta a internet para tener monitoreo remoto desde el broker MQTT de Thingspeak. Este broker permite la extraccion de datos para lograr tener alojado en la pagina en tiempo real el monitoreo de la temperatura; Adicionalemente se implemento una pantalla Nokia 5110 para tener visualización directamente sobre el elemento.</p>
+    <img class="esp32" src=ESP32.png width="600">
+    
+    <h3 class="codigo">Descripción del codigo</h3>
+
+    <p>Como se mencionó anteriormente se utilizo el IDE de Arduino para la programación de la ESP32, se incluyeron las librerías necesarias y se estableció la comunicación con Thingspeak.</p>
+
+    <h3 class=titulo-librerias>Librerias</h3>
+    <p>Se incluyeron las librerias siguientes librerias:</p>
+    <ol class="libreria-tabla">
+        <li><b>Wire.h</b> Permite la conexión de la ESP32 a internet.</li>
+        <li><b>DHT.h</b> Conexión del sensor DHT11 y extraer sus valores.</li>
+        <li><b>Adafruit GFX.h </b> y <b>Adafruit PCD8544.h</b> Permite la conexión de la patalla nokia. </li>
+    </ol>
+    <img src="librerias.png" class="librerias" width="400">
+    <h3 class="codigo">Variables globales</h3>
+    <p>Se crearon las varibles globales en las cuales se almacenan los datos para hacer la conexión a la red, una variable de tiempo y las variables donde se almacenan los datos de acceso entregados por Thingspeak.</p>
+    <img src="2.png" class="librerias">
+    <h3 class="codigo">Conexión a WiFi</h3>
+    <p>En este se incluye el metodo de conexión a la red WiFi y se establece un bluque en caso de no tener la conexión.</p>
+    <img src="4.png"class="librerias">
+    <h3 class="codigo">Thingspeak</h3>
+    <p>En este apartado se configura la conexión y el envio de datos a Thingspeak, se configuran todos los datos y utilizando la variable temp se envian los datos que seran entregados por al servidor.</p>
+    <img src="3.png" class="librerias">
+    <h3 class="codigo">Lectura de temperatura y visualización de datos en pantalla Nokia 5110</h3>
+    <p>Se incluye la lectura de la temperatura mediante el metodo dht.readTemperature() ademas se da el uso del tiempo currentMillis para establecer los tiempos en los cuales se van a enviar los datos; mediante los metodos de la libreria Adafruit PCD8544.h se logran imprimir en pantalla la dirección IP y la temperatura.</p>
+    <img src="5.png" class="librerias">
+<section class="graficas">
+    <p class="titulo-graficas">Grafica</p>
+    <iframe class="prueba" width="450" height="260" style="border: 2px solid #cccccc;" src="https://thingspeak.com/channels/1037327/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
+    <iframe class="prueba" width="250" height="260" style="border: 2px solid #cccccc;" src="https://thingspeak.com/channels/1037327/widgets/170727"></iframe>
+    <script src="https://gist.github.com/diegomez-ang/a8d4136b8073e5e4efe46ca195260d77.js"></script>
+</section>
+    
+</section>        
+   
+
+    
+
+
+    <footer>
+        <p class="fin"> CUN     2020-A</p>
+    </footer>
+
+</body>
+</html>
