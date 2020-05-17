@@ -65,24 +65,24 @@
         <li><b>DHT.h</b> Conexión del sensor DHT11 y extraer sus valores.</li>
         <li><b>Adafruit GFX.h </b> y <b>Adafruit PCD8544.h</b> Permite la conexión de la patalla nokia. </li>
     </ol>
-    <img src="librerias.png" class="librerias" width="400">
+    <script class="librerias" src="https://gist.github.com/diegomez-ang/a8d4136b8073e5e4efe46ca195260d77.js"></script> 
     <h3 class="codigo">Variables globales</h3>
     <p>Se crearon las varibles globales en las cuales se almacenan los datos para hacer la conexión a la red, una variable de tiempo y las variables donde se almacenan los datos de acceso entregados por Thingspeak.</p>
-    <img src="2.png" class="librerias">
+    <script class="librerias" src="https://gist.github.com/diegomez-ang/ea34ea8454334d9aeb3ca99d4eed329f.js"></script>
     <h3 class="codigo">Conexión a WiFi</h3>
     <p>En este se incluye el metodo de conexión a la red WiFi y se establece un bluque en caso de no tener la conexión.</p>
-    <img src="4.png"class="librerias">
+    <script class="librerias" src="https://gist.github.com/diegomez-ang/90858c1b2239838c25a75df30b136c36.js"></script>
     <h3 class="codigo">Thingspeak</h3>
     <p>En este apartado se configura la conexión y el envio de datos a Thingspeak, se configuran todos los datos y utilizando la variable temp se envian los datos que seran entregados por al servidor.</p>
-    <img src="3.png" class="librerias">
+    <script class="librerias" src="https://gist.github.com/diegomez-ang/4e5995d0911918d0bf8d9caa7f3898e6.js"></script>
     <h3 class="codigo">Lectura de temperatura y visualización de datos en pantalla Nokia 5110</h3>
     <p>Se incluye la lectura de la temperatura mediante el metodo dht.readTemperature() ademas se da el uso del tiempo currentMillis para establecer los tiempos en los cuales se van a enviar los datos; mediante los metodos de la libreria Adafruit PCD8544.h se logran imprimir en pantalla la dirección IP y la temperatura.</p>
-    <img src="5.png" class="librerias">
+    <script class="librerias" src="https://gist.github.com/diegomez-ang/da5ec73cce2e409e5b4894d04b890477.js"></script>
 <section class="graficas">
     <p class="titulo-graficas">Grafica</p>
     <iframe class="prueba" width="450" height="260" style="border: 2px solid #cccccc;" src="https://thingspeak.com/channels/1037327/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe>
     <iframe class="prueba" width="250" height="260" style="border: 2px solid #cccccc;" src="https://thingspeak.com/channels/1037327/widgets/170727"></iframe>
-    <script src="https://gist.github.com/diegomez-ang/a8d4136b8073e5e4efe46ca195260d77.js"></script>
+    
 </section>
     
 </section>        
